@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #3E2723;
+    background-color: #1E1715;
+  }
+}
+
+/* Custom scrollbar for mobile screens */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D7CCC8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A1887F;
+}
+
+/* Leaflet map styles fix */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  z-index: 10;
+  border-radius: 1rem;
+}
+
+/* Hide scrollbars for clean mobile app feel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Emergency pulse glow */
+@keyframes emergencyGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(229, 57, 53, 0);
+  }
+}
+
+.animate-emergency-glow {
+  animation: emergencyGlow 2s infinite;
+}
+
+/* Ambulance strobe light */
+@keyframes strobe {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
+}
+
+.animate-strobe {
+  animation: strobe 0.8s ease-in-out infinite;
+}
